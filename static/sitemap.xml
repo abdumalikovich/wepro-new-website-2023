@@ -1,0 +1,27 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>https://wepro.academy/</loc>
+        <lastmod>2022-05-16</lastmod>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>https://wepro.academy/courses</loc>
+        <lastmod>2022-05-16</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wepro.academy/together</loc>
+        <lastmod>2022-05-16</lastmod>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://wepro.academy/updates</loc>
+        <lastmod>2022-05-16</lastmod>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://wepro.academy/contacts</loc>
+        <lastmod>2022-05-16</lastmod>
+        <priority>0.8</priority>
+    </url>
+</urlset>
