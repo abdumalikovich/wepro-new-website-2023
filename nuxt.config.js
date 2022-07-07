@@ -16,6 +16,8 @@ export default {
     ]
   },
 
+	router: { middleware: ['anyRouteChanging'] },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],

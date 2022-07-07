@@ -1,32 +1,43 @@
 <template>
     <div id="app" class="layout-default">
-        <header-component/>
+        <header-component></header-component>
+        <main-menu></main-menu>
 
         <transition name="left" mode="out-in">
-            <img v-if="modals.register.status || modals.sign.status || modals.help.status" src="~/static/img/register-bg.svg" class="register-bg _pc">
-        </transition>
-
-        <transition name="fade" mode="out-in">
-            <div v-if="modals.video.status" class="modal-loading">
-                <div class="loading-circle">
-                    <img src="~/static/img/loading.svg">
-                </div>
-                <iframe src="https://www.youtube.com/embed/ISfi8_WxlDg?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+            <img v-if="modals.register.status || modals.consultation.status || modals.openLesson.status" src="~/static/img/register-bg.svg" class="register-bg _pc">
         </transition>
 
         <!-- <modals-cookies></modals-cookies> -->
 
         <transition name="fade" mode="out-in">
-            <div class="modal-default modal-left" v-if="modals.help.status">
+            <div class="modal-default modal-left" v-if="modals.consultation.status">
                 <img class="logo" src="~/static/img/logo-dark.svg">
 
                 <div class="_heading">
-                    <span class="_h2">Konsultatsiya olish</span>
-                    <p>Biz siz bilan bog'lanamiz va yuzaga kelgan har qanday savollarga javob beramiz</p>
+                    <span class="_h2">Консультация</span>
+                    <p>Оставьте свои контакты и получите бесплатную консультацию по курсу, программе и спикерам.</p>
                 </div>
 
                 <forms-help></forms-help>
+                <div class="_margin-line"></div>
+
+                <p class="_note">Пожалуйста, убедитесь, что правильно ввели данные.</p>
+            </div>
+        </transition>
+
+        <transition name="fade" mode="out-in">
+            <div class="modal-default modal-left" v-if="modals.openLesson.status">
+                <img class="logo" src="~/static/img/logo-dark.svg">
+
+                <div class="_heading">
+                    <span class="_h3">Открытый урок</span>
+                    <p>Оставьте свои контакты и получите бесплатную консультацию по курсу, программе и спикерам.</p>
+                </div>
+
+                <forms-help></forms-help>
+                <div class="_margin-line"></div>
+
+                <p class="_note">Пожалуйста, убедитесь, что правильно ввели данные.</p>
             </div>
         </transition>
 
@@ -60,43 +71,11 @@
                     <p>Оставьте свои контакты и получите бесплатную консультацию по курсу, программе и спикерам.</p>
                 </div>
 
-                <forms-help></forms-help>
+                <forms-register></forms-register>
 
                 <div class="_margin-line"></div>
 
                 <p class="_note">Пожалуйста, убедитесь, что правильно ввели данные.</p>
-
-                <!-- <div class="_margin-line"></div>
-
-                <div class="social-links">
-                    <a href="#">
-                        <button class=" google icon">
-                            <img src="~/static/img/sign-google.svg" >
-                        </button>
-                    </a>
-                    <a href="#">
-                        <button class=" facebook icon">
-                            <img src="~/static/img/sign-facebook.svg" >
-                        </button>
-                    </a>
-                </div> -->
-            </div>
-        </transition>
-        
-        <transition name="fade" mode="out-in">
-            <div class="modal-default modal-left" v-if="modals.sign.status">
-                <img class="logo" src="~/static/img/logo-dark.svg">
-
-                <div class="_heading">
-                    <span class="_h2">Оставить заявку</span>
-                    <p>Оставьте свои контакты и получите бесплатную консультацию по курсу, программе и спикерам.</p>
-                </div>
-
-                <forms-help></forms-help>
-
-                <div class="_margin-line"></div>
-
-                <p class="_note">Ro'yxatdan o'tib bo'lganmisiz? <span class="_link" @click="openModalWindow({ name: 'register', bg: true, closeAll: true })">Kirish</span></p>
             </div>
         </transition>
 
@@ -115,8 +94,10 @@
 
 <script lang="ts">
 import { mapGetters, mapMutations, mapActions, mapState } from "vuex";
+import footerComponent from '~/components/footer-component.vue';
 
 export default {
+  components: { footerComponent },
     data() {
         return {
             showHideSpinner: false
@@ -915,11 +896,9 @@ button {
 ._main_heading {
     background-color: var(--bg);
     padding: 120px 0 60px;
-    .description {
-        margin-top: 24px;
-        margin-bottom: 24px;
-        font-weight: 500;
-        text-align: center;
+    p {
+        margin-top: 14px;
+        color: var(--grey);
     }
 }
 

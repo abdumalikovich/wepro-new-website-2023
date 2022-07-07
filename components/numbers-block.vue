@@ -1,33 +1,38 @@
 <template>
-    <div class="numbers _width_small">
+    <div class="numbers _width">
         <div class="_heading">
-            <span class="_h2">Biz noyob platformani taklif qilamiz</span>
+            <span class="_h2">Лучшее образование на рынке</span>
         </div>
         <div class="wrapper">
             <div>
                 <span class="number">01</span>
-                <span class="_h3">Yo'nalishni tanlang</span>
-                <p>Boshlash uchun mos kursni tanlang yoki yordam xizmatiga murojaat qiling. Biz har doim sizga yordam beramiz.</p>
+                <span class="_h3">Таблица оценок</span>
+                <p>Мы разработали максимально простую таблицу успеваемости. Она нужна чтобы вы точно знали на каком уровне находитесь. Где еще приложить дополнительные усилия. Но с нами вы точно будете учиться не ради оценок, а ради знаний.</p>
             </div>
             <div>
                 <span class="number">02</span>
-                <span class="_h3">Kurslarni o'zingizga qulay vaqtda o'rganing</span>
-                <p>Kurslar har doim talabalar panelida mavjud. Kun yoki tunning istalgan vaqtida o'rganing.</p>
+                <span class="_h3">Отслеживание успеваемости</span>
+                <p>Система отслеживания успеваемости позволяет нам фокусируются на каждом студенте отдельно. Мы максимально быстро можем отреагировать если тот или иной студент не понял тему. Усилить слабые моменты, дать дополнительные задания, доработать материал до точного понимания.</p>
             </div>
             <div>
                 <span class="number">03</span>
-                <span class="_h3">Diplom ishingizni topshiring</span>
-                <p>Pro-kurslardan tekshiruvlar asosida o`ting , platforma va ustoz mentorlarning fikr-mulohazalarni oling</p>
+                <span class="_h3">Общение с преподавателем в Telegram</span>
+                <p>Задавайте вопросы, общаетесь, решайте задачи, соревнуйтесь не только на уроках, но и в Telegram. Поддержка наших преподавателей продолжается не только оффлайн.</p>
             </div>
             <div>
                 <span class="number">04</span>
-                <span class="_h3">Ish toping yoki Wepro bilan ishlang</span>
-                <p>Bizning "Bandlik markazi"miz eng yaxshi o'quvchilarni O'zbekistonning top kompaniyalariga ishga joylatirishga yordam beradi. Harakat qiling va yaxshi joylarni egallang.</p>
+                <span class="_h3">Общение в группах с опытными студентами</span>
+                <p>Однокурсники, друзья, коллеги в одной группе. Активное большое комьюнити, которое всегда готовы помочь даже если вы задаете, казалось бы базовые вопросы. Среда "своих", в которой вам комфортно развиваться и расти</p>
             </div>
             <div>
                 <span class="number">05</span>
-                <span class="_h3">O'zingiz orzu qilgan hayotda yashang</span>
-                <p>Agar siz bu haqida o'ylab ko'rsangiz, hammasi juda oddiy. Biz bilan davr talabi mutahassisiga aylaning va IT bozorda yaxshiroq takliflarga ega bo'ling.</p>
+                <span class="_h3">Коворкинг-зона</span>
+                <p>По каким-то причинам не можете работать или делать домашнее задание дома? - огромная коворкинг зона к вашему распоряжению. Вы можете прийти в Wepro, разместиться за удобным столом, заварить себе кофе и заниматься тем что вам интересно. Мы предоставляем все необходимое, чтобы вы расли и развивались вместе с Wepro. Коворкинг для студентов - абсолютно бесплатный!</p>
+            </div>
+            <div>
+                <span class="number">06</span>
+                <span class="_h3">Бесплатный Wi-Fi</span>
+                <p>К коворкинг зоне, конечно же, предлагается бесплатный wi-fi. Но здесь вы скорее растёте другие имеет "сетями". В Wepro рождаются потрясающие идеи, которые перерастают в стартапы. Стартапы объединяют людей. Люди полноценные продукты, которые работают на благо общества.</p>
             </div>
         </div>
     </div>
@@ -37,9 +42,9 @@
 .numbers {
     .wrapper {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
         div {
-            margin: 0 55px 55px 0;
+            margin: 0 24px 24px 0;
             span {
                 display: block;
             }

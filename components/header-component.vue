@@ -2,21 +2,25 @@
     <header class="light header_active">
         <div class="wrapper">
             <div class="links">
+                <div class="open-menu cursor" @click="openModalWindow({ name: 'menu', bg: true, closeAll: true })">
+                    <svg data-v-e42e8fea="" data-v-4b731282="" viewBox="0 0 24 24" class="MaterialIcon" data-v-9af65d22=""><path data-v-e42e8fea="" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path></svg>
+                </div>
+
                 <nuxt-link to="/" class="logo">
                     <img src="~/static/img/logo-dark.svg">
                 </nuxt-link>
 
                 <div class="_pc">
-                    <nuxt-link to="#">Все курсы</nuxt-link>
-                    <nuxt-link to="#">Успейте записаться</nuxt-link>
-                    <nuxt-link to="#">Преподаватели</nuxt-link>
-                    <nuxt-link to="#">Фотографии</nuxt-link>
-                    <nuxt-link to="#">Бесплатный урок</nuxt-link>
-                    <nuxt-link to="#">Контакты</nuxt-link>
+                    <nuxt-link to="/courses">Все курсы</nuxt-link>
+                    <nuxt-link to="/groups">Успейте записаться</nuxt-link>
+                    <nuxt-link to="/teachers">Преподаватели</nuxt-link>
+                    <nuxt-link to="/gallery">Фотографии</nuxt-link>
+                    <nuxt-link to="/forms/fre">Бесплатный урок</nuxt-link>
+                    <nuxt-link to="/help">Контакты</nuxt-link>
                 </div>
             </div>
             
-            <button @click="openModalWindow({ name: 'register', bg: true })" class="light small">Консультация</button>
+            <button @click="openModalWindow({ name: 'consultation', bg: true })" class="light small">Консультация</button>
         </div>
     </header>
 </template>
@@ -135,7 +139,7 @@ header {
         .logo {
             display: flex;
             align-items: center;
-            margin-right: 24px;
+            margin: 0 24px;
             position: relative;
             img {
                 height: 40px;

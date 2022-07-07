@@ -4,8 +4,7 @@
 
         <input type="text" placeholder="Ваше имя" v-model.trim="user.firstName">
         <input type="text" v-mask="'+998 (##) ###-##-##'" placeholder="Номер телефона" v-model.trim="user.phone">
-        <textarea placeholder="Сообщение" v-model.trim="user.message"></textarea>
-        <!-- <select name="" id=""></select> -->
+        <select name="" id=""></select>
         <button :class="{ 'loading': buttonLoading }">Оставить заявку</button>
     </form>
 </template>
@@ -21,7 +20,7 @@ export default {
             user: {
                 firstName: "",
                 phone: "+998",
-                message: ""
+                courseId: ""
             },
         }
     },

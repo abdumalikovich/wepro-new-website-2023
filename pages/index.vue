@@ -7,12 +7,8 @@
                 <p class="description">4 месяца и вы готовый к работе специалист. Доступно. Качественно. По авторским методикам и постоянным контактом с преподавателем. Курсы по программированию, маркетингу, SMM, 3D-моделированию и графическому дизайну.</p>
                 
                 <div class="_buttons">
-                    <nuxt-link to="/me">
-                        <button class="style-2">Записаться на курс</button>
-                    </nuxt-link>
-                    <nuxt-link to="/courses">
-                        <button class="style-1">Бесплатный урок</button>
-                    </nuxt-link>
+                    <button @click="openModalWindow({ name: 'register', bg: true })" class="style-2">Записаться на курс</button>
+                    <button @click="openModalWindow({ name: 'openLesson', bg: true })" class="style-1">Бесплатный урок</button>
                 </div>
             </div>
         </div>
@@ -56,51 +52,29 @@
             </div>
         </div>
 
-        <form-component></form-component>
+        <div class="_margin"></div>
+
+        <form-lead></form-lead>
 
         <numbers-block></numbers-block>
 
-        <div class="_pc">
-            <div class="_width_small">
-                <div class="_heading">
-                    <span class="_h2">Как проходят занятия</span>
-                </div>
-                <div class="about-platform img-text">
-                    <div class="side">
-                        <div class="_heading">
-                            <span class="_h3">Biz siz bilan bo'lamiz va sizni yarim yo'l to'xtab qolishingizga qo'ymaymiz.</span>
-                        </div>
-                        <div class="wrapper">
-                            <p>O'sib va rivojlanib kelayotgan insonlar qatoriga  qo'shiling: kashfiyotlar bilan o'rtoqlashing, tajriba almashing, ilhom oling va hamfikrlardan yordam oling.</p>
-                        </div>
-                    </div>
-
-                    <img src="~/static/img/about-us-1.png" width="350" class="preview">
-                </div>
+        <div class="all-teachers _width">
+            <div class="_heading">
+                <span class="_h2">Наша команда</span>
             </div>
-
-            <div class="_margin"></div>
-
-            <div class="about-platform about-platform-2 _width_small img-text reverse">
-                <img src="~/static/img/about-platform.png" width="350" class="preview">
-                
-                <div class="side">
-                    <div class="_heading">
-                        <span class="_h3">Platforma haqida</span>
-                    </div>
-                    <div class="wrapper">
-                        <span class="_h4">Analitika - o`qish davomida</span>
-                        <p>Bizning platformamiz foydalanuvchilarni o'rganishga chuqur integratsiyalangan. Sizga qachon o'qish yaxshiroq ekanligini va qachon tanaffus qilish kerakligini aytib beradi</p>
-
-                        <span class="_h4">Interaktiv</span>
-                        <p>Platformada muayyan harakatlar uchun ball to'plang va sotib olinmaydigan yopiq kurslarga ega bo`ling.</p>
-
-                        <span class="_h4">Barcha talabalar o'rtasida xakaton va musobaqalar</span>
-                        <p>Platformada talabalar o'rtasidagi musobaqalarda ishtirok eting va eng yaxshi talabalar qatoriga kiring.</p>
-                    </div>
-                </div>
+            <div class="wrapper">
+                <teachers-list></teachers-list>
             </div>
         </div>
+
+        <!-- <div class="all-reviews _width">
+            <div class="_heading">
+                <span class="_h2">Отзывы от студентов</span>
+            </div>
+            <div class="wrapper">
+                <reviews-list></reviews-list>
+            </div>
+        </div> -->
 
         <!-- <div class="teachers-block _width">
             <div class="_heading">

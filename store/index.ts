@@ -11,19 +11,7 @@ export default () => new Vuex.Store({
             menu: {
                 status: false,
             },
-            avatar: {
-                status: false,
-            },
             together: {
-                status: false,
-            },
-            password: {
-                status: false,
-            },
-            register_warning: {
-                status: false,
-            },
-            video: {
                 status: false,
             },
             background: {
@@ -32,7 +20,7 @@ export default () => new Vuex.Store({
             register: {
                 status: false,
             },
-            sign: {
+            openLesson: {
                 status: false,
             },
             success: {
@@ -46,7 +34,7 @@ export default () => new Vuex.Store({
             loading: {
                 status: false
             },
-            help: {
+            consultation: {
                 status: false
             },
         }

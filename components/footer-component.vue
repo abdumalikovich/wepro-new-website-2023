@@ -1,9 +1,12 @@
 <template>
     <footer>
         <div class="links">
-            <nuxt-link to="/me">Shaxsiy kabinet</nuxt-link>
-            <nuxt-link to="/courses">Barcha kurslar</nuxt-link>
-            <nuxt-link to="/forms/together">O'qitishni istayman</nuxt-link>
+            <nuxt-link to="/courses">Все курсы</nuxt-link>
+            <nuxt-link to="/forms/register">Успейте записаться</nuxt-link>
+            <nuxt-link to="/teachers">Преподаватели</nuxt-link>
+            <nuxt-link to="/gallery">Фотографии</nuxt-link>
+            <nuxt-link to="/forms/fre">Бесплатный урок</nuxt-link>
+            <nuxt-link to="/help">Контакты</nuxt-link>
             <!-- <a target="_blank" href="https://drive.google.com/file/d/1DjTGyyAtHArEz_4r6UeoAsCxPilb1-B1/view?usp=sharing">Oferta</a>
             <a target="_blank" href="https://docs.google.com/document/d/1OzDvl0AX2eM9vdIPzYlA5rMR3wFrceB7IU2ibxhlJN8/edit?usp=sharing">Maxfiylik siyosati</a> -->
         </div>

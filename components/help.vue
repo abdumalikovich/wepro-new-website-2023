@@ -8,7 +8,7 @@
                 </div>
 
                 <div class="_buttons">
-                    <button class="style-5" @click="openModalWindow({ name: 'help', bg: true })">Проконсультироваться</button>
+                    <button class="style-5" @click="openModalWindow({ name: 'consultation', bg: true })">Проконсультироваться</button>
                 </div>
             </div>
             <img class="_pc" src="~/static/img/window.svg">
