@@ -159,6 +159,7 @@ export default {
             align-items: center;
             img {
                 margin-right: 12px;
+                object-fit: contain;
             }
             &:hover {
                 background-color: var(--bg);

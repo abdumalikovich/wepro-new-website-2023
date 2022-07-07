@@ -103,12 +103,12 @@ export default {
             showHideSpinner: false
         }
     },
-    beforeCreate() {
-        this.showHideSpinner = true;
-    },
-    mounted() {
-        this.showHideSpinner = false;
-    },
+    // beforeCreate() {
+    //     this.showHideSpinner = true;
+    // },
+    // mounted() {
+    //     this.showHideSpinner = false;
+    // },
     computed: {
         ...mapGetters(["modals"])
 	},
