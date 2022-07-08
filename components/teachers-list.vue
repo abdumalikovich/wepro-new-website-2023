@@ -21,7 +21,7 @@ export default {
 <style scoped lang="scss">
 .teachers-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     .item {
         margin: 0 24px 24px 0;
         text-align: center;

@@ -337,10 +337,7 @@ button {
     background-color: var(--corp);
     padding: 12px 22px;
     border-radius: 4px;
-    font-weight: 500;
-    border: 2x solid var(--corp);
     height: 48px;
-    font-weight: 600;
     font-size: 15px;
     transition: .3s ease;
     display: flex;
@@ -383,12 +380,10 @@ button {
         display: flex;
         align-items: center;
         font-size: 14px;
-        font-weight: 500!important;
         padding: 11px 15px;
-        background-color: rgba(255, 255, 255, .7);
         border: 1px solid var(--grey);
         color: var(--black);
-        font-weight: 600;
+        font-weight: bold;
         border: none;
         border-radius: 100px;
         height: 40px;
