@@ -15,21 +15,14 @@
                         <span class="_fill">{{ item.course_programm.length * 90 }} минут</span>
 
                         <span class="_h3">{{ item.title }}</span>
-                        <p class="course-description">{{ item.description }}</p>
+                        <p class="_pc course-description">{{ item.description }}</p>
+                        <p class="_mobile course-description">{{ item.description.slice(0, 90) + "..." }}</p>
 
                         <client-only>
-                            <div v-if="!user || !user.coursesId.includes(item._id)" class="_buttons">
+                            <div class="_buttons">
                                 <button class="style-4">
                                     <span>Подробнее</span>
                                 </button>
-                            </div>
-                            <div v-else class="user-active-block">
-                                <div class="_buttons">
-                                    <button class="style-4">
-                                        <img src="~/static/img/play-dark.svg">
-                                        <span>Ko'rishni davom eting</span>
-                                    </button>
-                                </div>
                             </div>
                         </client-only>
                     </div>
@@ -69,6 +62,11 @@ export default {
             background-color: #fff;
             box-shadow: 15px 15px 30px rgb(0 0 0 / 10%);
             border: 2px solid var(--accent);
+            .side-left {
+                img {
+                    border: 2px solid var(--accent);
+                }
+            }
         }
         .side-left {
             min-width: 140px;
@@ -78,6 +76,8 @@ export default {
                 height: 100px;
                 object-fit: cover;
                 border-radius: 100px;
+                border: 2px solid transparent;
+                transition: .3s linear;
             }
             .teacher-name {
                 font-weight: 700;

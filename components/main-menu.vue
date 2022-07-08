@@ -17,6 +17,10 @@
                             <img src="~/static/img/courses.svg">
                             Все курсы
                         </nuxt-link>
+                        <nuxt-link to="/job">
+                            <img src="~/static/img/briefcase.svg">
+                            Вакансии
+                        </nuxt-link>
                         <nuxt-link to="/groups">
                             <img src="~/static/img/clock.svg">
                             Успейте записаться

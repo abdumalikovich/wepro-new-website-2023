@@ -11,12 +11,13 @@
                 </nuxt-link>
 
                 <div class="_pc">
-                    <nuxt-link to="/courses">Все курсы</nuxt-link>
-                    <nuxt-link to="/groups">Успейте записаться</nuxt-link>
-                    <nuxt-link to="/teachers">Преподаватели</nuxt-link>
-                    <nuxt-link to="/gallery">Фотографии</nuxt-link>
-                    <nuxt-link to="/forms/fre">Бесплатный урок</nuxt-link>
-                    <nuxt-link to="/help">Контакты</nuxt-link>
+                    <div class="links-list">
+                        <nuxt-link to="/courses">Все курсы</nuxt-link>
+                        <nuxt-link to="/groups">
+                            Успейте записаться
+                            <img src="~/static/img/fire.png" width="18">
+                        </nuxt-link>
+                    </div>
                 </div>
             </div>
             
@@ -194,6 +195,17 @@ header {
         justify-content: space-between;
     }
     .links {
+        .links-list {
+            display: flex;
+            align-items: center;
+            a {
+                display: flex;
+                align-items: center;
+                img {
+                    margin-left: 8px;
+                }
+            }
+        }
         div {
             a {
                 margin-right: 24px;

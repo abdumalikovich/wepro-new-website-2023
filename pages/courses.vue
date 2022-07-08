@@ -11,8 +11,10 @@
 
         <div class="all-courses _width">
             <div class="wrapper">
-                <courses-list :list="JSON.parse(JSON.stringify(courses)).filter(item => item.price == 0)" v-if="courses.length"/>
-                <loading-courses v-else/>
+                <client-only>
+                    <courses-list v-if="allData.courses.body.length" :list="allData.courses.body"></courses-list>
+                    <loading-courses v-else></loading-courses>
+                </client-only>
             </div>
         </div>
 
@@ -24,14 +26,12 @@
 import { mapGetters, mapMutations, mapActions, mapState } from "vuex";
 
 export default {
-    data() {
-        return {
-            courses: []
-        }
-    },
     methods: {
         ...mapMutations(["openModalWindow"]),
-        ...mapMutations(["openModalWindow"]),
+		...mapActions(["GET_DATA"]),
     },
+	created() {
+		this.GET_DATA(["courses"])
+	},
 }
 </script>
