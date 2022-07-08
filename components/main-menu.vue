@@ -17,10 +17,10 @@
                             <img src="~/static/img/courses.svg">
                             Все курсы
                         </nuxt-link>
-                        <nuxt-link to="/job">
+                        <!-- <nuxt-link to="/job">
                             <img src="~/static/img/briefcase.svg">
                             Вакансии
-                        </nuxt-link>
+                        </nuxt-link> -->
                         <nuxt-link to="/groups">
                             <img src="~/static/img/clock.svg">
                             Успейте записаться
@@ -33,11 +33,11 @@
                             <img src="~/static/img/camera.svg">
                             Фотографии
                         </nuxt-link>
-                        <nuxt-link to="/forms/fre">
+                        <nuxt-link to="/forms/open-lesson">
                             <img src="~/static/img/dollar-sign.svg">
                             Бесплатный урок
                         </nuxt-link>
-                        <nuxt-link to="/help">
+                        <nuxt-link to="/contacts">
                             <img src="~/static/img/chat.svg">
                             Контакты
                         </nuxt-link>

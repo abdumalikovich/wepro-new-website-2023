@@ -10,8 +10,10 @@
 
         <div class="all-courses _width">
             <div class="wrapper">
-                <teachers-list/>
-                <!-- <loading-courses v-else/> -->
+                <client-only>
+                    <teachers-list v-if="allData.teachers.body.length" :list="allData.teachers.body"></teachers-list>
+                    <loading-courses v-else></loading-courses>
+                </client-only>
             </div>
         </div>
 
@@ -23,14 +25,15 @@
 import { mapGetters, mapMutations, mapActions, mapState } from "vuex";
 
 export default {
-    data() {
-        return {
-            courses: []
-        }
-    },
+	computed: {
+		...mapGetters(["allData"]),
+	},
     methods: {
         ...mapMutations(["openModalWindow"]),
-        ...mapMutations(["openModalWindow"]),
+		...mapActions(["GET_DATA"]),
     },
+	created() {
+		this.GET_DATA(["teachers"])
+	},
 }
 </script>

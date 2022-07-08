@@ -26,6 +26,9 @@
 import { mapGetters, mapMutations, mapActions, mapState } from "vuex";
 
 export default {
+	computed: {
+		...mapGetters(["allData"]),
+	},
     methods: {
         ...mapMutations(["openModalWindow"]),
 		...mapActions(["GET_DATA"]),

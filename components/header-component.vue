@@ -17,6 +17,7 @@
                             Успейте записаться
                             <img src="~/static/img/fire.png" width="18">
                         </nuxt-link>
+                        <nuxt-link to="/teachers">Преподаватели</nuxt-link>
                     </div>
                 </div>
             </div>
@@ -68,7 +69,7 @@ export default {
 
 header {
     z-index: 2;
-    padding: 24px 50px;
+    padding: 24px;
     top: 0;
     left: 0;
     right: 0;
