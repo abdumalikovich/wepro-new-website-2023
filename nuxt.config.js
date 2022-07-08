@@ -18,6 +18,10 @@ export default {
 
 	router: { middleware: ['anyRouteChanging'] },
 
+	publicRuntimeConfig: {
+		// baseURL: 'http://localhost:8080',
+		baseURL: 'https://wepro-new-website-2022.herokuapp.com',
+	},
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],

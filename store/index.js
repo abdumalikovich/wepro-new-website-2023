@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import user from "./user"
+import apiRoutes from "../services/routes";
 
 Vue.use(Vuex)
 
@@ -37,17 +37,40 @@ export default () => new Vuex.Store({
             consultation: {
                 status: false
             },
+        },
+        allData: {
+            groups: {
+                method: "get",
+                api: "groups",
+                body: []
+            },
+            courses: {
+                method: "get",
+                api: "courses",
+                body: []
+            },
+            course: {
+                method: "get",
+                api: "courses",
+                body: []
+            },
+            teachers: {
+                method: "get",
+                api: "teachers",
+                body: []
+            },
         }
     },
     getters: {
-        modals: (state: { modals: any }) => state.modals,
+        modals: state => state.modals,
+        allData: state => state.allData,
     },
     mutations: {
-        setButtonLoadingStatus(state: any, {evt, bool}: {evt: any, bool: boolean}) {
+        setButtonLoadingStatus(state, {evt, bool}) {
             if(bool) evt.classList.add("loading")
             else evt.classList.remove("loading")
         },
-        showNotification(state: any, {bool, text}: {bool: boolean, text: string}) {
+        showNotification(state, {evt, bool}) {
             if(bool) {
                 state.modals.success.status = true
                 state.modals.success.text = text
@@ -61,12 +84,12 @@ export default () => new Vuex.Store({
                 state.modals.error.status = false
             }, 3000)
         },
-        closeAllModals(state: any) {
+        closeAllModals(state) {
             for (let item in state.modals) {
                 state.modals[item].status = false
             }
         },
-        openModalWindow(state: any, details: any) {
+        openModalWindow(state, details) {
             if (details.closeAll) {
                 for (let item in state.modals) {
                     state.modals[item].status = false
@@ -80,50 +103,31 @@ export default () => new Vuex.Store({
     
             if (details.bg) state.modals.background.status = true
         },
-        // setLocalVariables(state: any) {
-        //     // toggle view
-        //     if(localStorage.showCoursesAsGrid) {
-        //         state.showCoursesAsGrid = JSON.parse(localStorage.showCoursesAsGrid)
-        //     } else {
-        //         state.showCoursesAsGrid = false
-        //         localStorage.showCoursesAsGrid = false
-        //     }
-        // },
+        GET_DATA(state, data) {
+            state.allData[data.key].body = data.value
+        },
     },
     actions: {
+        async GET_DATA({ commit, rootState, dispatch }, routes) {
+            for(let item of routes) {
+                let api = rootState.allData[item].api
+    
+                if(!rootState.allData[item].body.length || rootState.allData[item].length == 0) {
+                    // IF EMPTY DATA
+                    await apiRoutes
+                        .get({
+                            api: api,
+                        })
+                        .then((res) => {
+                            commit("GET_DATA", { key: item, value: res.data });
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        })
+                } else {
+                    console.log("Already here");
+                }
+            }
+        },
     },
-    modules: {
-        user
-    }
 })
-
-// import Vue from 'vue'
-// import Vuex from 'vuex'
-
-// Vue.use(Vuex)
-
-// const state = () => ({
-//     registerUser: {
-//         strategy: "local"
-//     },
-// })
-
-// const getters = {
-//     registerUser: (state: { registerUser: any }) => state.registerUser
-// }
-
-// const mutations = {
-// }
-
-// const actions = {
-//     abc({ commit, rootState, dispatch }: {commit: any, rootState: any, dispatch: any}) {
-        
-//     },
-// }
-
-// export default {
-//   state,
-//   getters,
-//   actions,
-//   mutations
-// }

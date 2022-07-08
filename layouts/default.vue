@@ -4,7 +4,7 @@
         <main-menu></main-menu>
 
         <transition name="left" mode="out-in">
-            <img v-if="modals.register.status || modals.consultation.status || modals.openLesson.status" src="~/static/img/register-bg.svg" class="register-bg _pc">
+            <img @click="closeAllModals()" v-if="modals.register.status || modals.consultation.status || modals.openLesson.status" src="~/static/img/register-bg.svg" class="register-bg _pc">
         </transition>
 
         <!-- <modals-cookies></modals-cookies> -->
@@ -161,8 +161,19 @@ export default {
 }
 
 @font-face {
-    font-family: "SF";
-	src: url("@/static/fonts/sf-pro-display_regular.ttf");
+    font-display: swap;
+    font-family: "Apercu";
+    font-style: normal;
+    font-weight: bold;
+	src: url("@/static/fonts/apercu-bold-pro.woff") format("woff"), url("@/static/fonts/apercu-bold-pro.woff2") format("woff2");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Apercu";
+    font-style: normal;
+    font-weight: normal;
+	src: url("@/static/fonts/apercu-regular-pro.woff") format("woff"), url("@/static/fonts/apercu-regular-pro.woff2") format("woff2");
 }
 
 * {
@@ -172,7 +183,8 @@ export default {
     outline: none;
     text-decoration: none;
     border: none;
-    font-family: "SF", sans-serif;
+    font-weight: normal;
+    font-family: "Apercu", sans-serif;
 }
 
 p {
@@ -188,7 +200,7 @@ p {
 }
 
 ._h4, ._h3, ._h2, ._h1, h1, h2, h3, h4 {
-    font-family: "SF", sans-serif;
+    font-family: "Apercu", sans-serif;
 }
 
 .layout-default {

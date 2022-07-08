@@ -19,7 +19,7 @@
             </div>
             <div class="wrapper">
                 <client-only>
-                    <courses-list v-if="courses.length" :list="JSON.parse(JSON.stringify(courses)).filter(item => item.price == 0)"/>
+                    <groups-list v-if="allData.groups.body.length" :list="allData.groups.body"/>
                     <loading-courses v-else/>
                 </client-only>
             </div>
@@ -47,8 +47,10 @@
                 <span class="_h2">Все курсы</span>
             </div>
             <div class="wrapper">
-                <courses-list :list="JSON.parse(JSON.stringify(courses)).filter(item => item.price > 0)" v-if="courses.length"/>
-                <loading-courses v-else/>
+                <client-only>
+                    <courses-list v-if="allData.courses.body.length" :list="allData.courses.body"></courses-list>
+                    <loading-courses v-else></loading-courses>
+                </client-only>
             </div>
         </div>
 
@@ -63,7 +65,7 @@
                 <span class="_h2">Наша команда</span>
             </div>
             <div class="wrapper">
-                <teachers-list></teachers-list>
+                <teachers-list v-if="allData.teachers.body.length" :list="allData.teachers.body"></teachers-list>
             </div>
         </div>
 
@@ -96,17 +98,19 @@
 </template>
 
 <script lang="ts">
-import {mapActions, mapMutations, mapState} from "vuex"
+import {mapActions, mapGetters, mapMutations, mapState} from "vuex"
 
 export default {
-    data() {
-        return {
-            courses: []
-        }
-    },
+	computed: {
+		...mapGetters(["allData"]),
+	},
     methods: {
         ...mapMutations(["openModalWindow"]),
+		...mapActions(["GET_DATA"]),
     },
+	created() {
+		this.GET_DATA(["groups", "courses", "teachers"])
+	},
 }
 </script>
 
