@@ -52,7 +52,7 @@
 
 <script>
 export default {
-
+    props: ["limit"]
 }
 </script>
 

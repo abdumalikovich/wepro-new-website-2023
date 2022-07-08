@@ -6,7 +6,7 @@
                     <span class="_h3">Оставить заявку</span>
                     <p>Оставьте свои контакты и получите бесплатную консультацию по курсу, программе и спикерам.</p>
                 </div>
-                <forms-help></forms-help>
+                <forms-consultation></forms-consultation>
             </div>
             <img class="_pc" src="~/static/img/register.jpg">
         </div>

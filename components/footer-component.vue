@@ -20,7 +20,7 @@
                 <nuxt-link to="/">
                     <img src="~/static/img/logo-white.svg">
                 </nuxt-link>
-                <span class="_note">Barcha huquqlar himoyalangan © Wepro MchJ</span>
+                <span class="_note">Все права защищены © Wepro MchJ</span>
             </div>
 
             <div class="social">

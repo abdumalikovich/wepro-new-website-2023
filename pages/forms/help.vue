@@ -8,7 +8,7 @@
 
                 <div class="form">
                     <div class="form-element">
-                        <forms-help></forms-help>
+                        <forms-consultation></forms-consultation>
                     </div>
 
                     <p class="_note">Yangimisiz? <nuxt-link to="/forms/register"><span class="_link">Ro'yxatdan o'tish</span></nuxt-link></p>

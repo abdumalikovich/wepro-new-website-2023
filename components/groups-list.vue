@@ -1,9 +1,7 @@
 <template>
     <div class="groups-list">
-        <div class="item" @click="openModalWindow({ name: 'register', bg: true })" v-for="item of list" :key="item.key">
-            <nuxt-link :to="'/course' + item.courseId._id">
-                <span class="_h3">{{ item.courseId.title }}</span>
-            </nuxt-link>
+        <div class="item" @click="openModalWindow({ name: 'leadGroup', bg: true, id: item._id })" v-for="item of list" :key="item.key">
+            <span class="_h3">{{ item.courseId.title }}</span>
             <span class="_note">Осталось мест: {{ item.need_quantity }}</span>
 
             <div class="line"><div :style="{width: + 100 - (100 / 10 * item.need_quantity) + '%'}"></div></div>

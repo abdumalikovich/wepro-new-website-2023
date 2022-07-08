@@ -4,10 +4,25 @@
         <main-menu></main-menu>
 
         <transition name="left" mode="out-in">
-            <img @click="closeAllModals()" v-if="modals.register.status || modals.consultation.status || modals.openLesson.status" src="~/static/img/register-bg.svg" class="register-bg _pc">
+            <img @click="closeAllModals()" v-if="modals.register.status || modals.leadGroup.status || modals.consultation.status || modals.openLesson.status" src="~/static/img/register-bg.svg" class="register-bg _pc">
         </transition>
 
         <!-- <modals-cookies></modals-cookies> -->
+
+        <transition name="fade" mode="out-in">
+            <div class="modal-default modal-left" v-if="modals.leadGroup.status">
+                <img class="logo" src="~/static/img/logo-dark.svg">
+
+                <div class="_heading">
+                    <span class="_h3">Запись на набор</span>
+                </div>
+
+                <forms-groups></forms-groups>
+                <div class="_margin-line"></div>
+
+                <p class="_note">Пожалуйста, убедитесь, что правильно ввели данные.</p>
+            </div>
+        </transition>
 
         <transition name="fade" mode="out-in">
             <div class="modal-default modal-left" v-if="modals.consultation.status">
@@ -18,7 +33,7 @@
                     <p>Оставьте свои контакты и получите бесплатную консультацию по курсу, программе и спикерам.</p>
                 </div>
 
-                <forms-help></forms-help>
+                <forms-consultation></forms-consultation>
                 <div class="_margin-line"></div>
 
                 <p class="_note">Пожалуйста, убедитесь, что правильно ввели данные.</p>
@@ -34,7 +49,7 @@
                     <p>Оставьте свои контакты и получите бесплатную консультацию по курсу, программе и спикерам.</p>
                 </div>
 
-                <forms-help></forms-help>
+                <forms-open-lesson></forms-open-lesson>
                 <div class="_margin-line"></div>
 
                 <p class="_note">Пожалуйста, убедитесь, что правильно ввели данные.</p>
@@ -332,6 +347,10 @@ a {
 }
 
 button {
+    &:disabled {
+        opacity: 0.45;
+        pointer-events: none;
+    }
     white-space: nowrap;
     color: #fff;
     background-color: var(--corp);
@@ -1098,6 +1117,15 @@ form {
     textarea {
         resize: vertical;
         height: 100px;
+    }
+    select {
+        -moz-appearance:none; /* Firefox */
+        -webkit-appearance:none; /* Safari and Chrome */
+        appearance:none;
+        background-image: url("~/static/img/arrow.webp");
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-size: 12px;
     }
     input, select, textarea {
         padding: 17px 22px;

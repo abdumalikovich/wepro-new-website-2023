@@ -7,6 +7,25 @@ Vue.use(Vuex)
 export default () => new Vuex.Store({
     state: {
         // showCoursesAsGrid: false,
+        globalElementId: "",
+        routes: {
+            leads: {
+                method: "post",
+                api: "leads",
+            },
+            leadsOpenLesson: {
+                method: "post",
+                api: "leadsOpenLesson",
+            },
+            leadsConsultations: {
+                method: "post",
+                api: "leadsConsultations",
+            },
+            leadsGroups: {
+                method: "post",
+                api: "leadsGroups",
+            },
+        },
         modals: {
             menu: {
                 status: false,
@@ -21,6 +40,9 @@ export default () => new Vuex.Store({
                 status: false,
             },
             openLesson: {
+                status: false,
+            },
+            leadGroup: {
                 status: false,
             },
             success: {
@@ -64,6 +86,7 @@ export default () => new Vuex.Store({
     getters: {
         modals: state => state.modals,
         allData: state => state.allData,
+        globalElementId: state => state.globalElementId,
     },
     mutations: {
         setButtonLoadingStatus(state, {evt, bool}) {
@@ -99,9 +122,11 @@ export default () => new Vuex.Store({
             state.modals[details.name].status = !state.modals[details.name].status
             state.modals[details.name].text = details.text
     
-            state.globalElementId = details.id
+            if (details.id)
+                state.globalElementId = details.id
     
-            if (details.bg) state.modals.background.status = true
+            if (details.bg)
+                state.modals.background.status = true
         },
         GET_DATA(state, data) {
             state.allData[data.key].body = data.value
@@ -127,6 +152,58 @@ export default () => new Vuex.Store({
                 } else {
                     console.log("Already here");
                 }
+            }
+        },
+        sendForm({ commit, rootState, dispatch }, { id }) {
+            event.preventDefault()
+
+            let obj = {}
+            let fm = new FormData(event.target)
+            let counter = 0
+            let need = event.target.querySelectorAll("*[data-min]").length
+    
+            let evt = event.target
+            
+            evt.querySelector("button").setAttribute("disabled", "disabled")
+    
+            fm.forEach((value, key) => {
+                let element = event.target.querySelector(`*[name=${key}]`)
+    
+                element.classList.remove("input-error")        
+    
+                if(element.getAttribute("data-min")) {
+                    if(element.value.length < element.getAttribute("data-min")) {
+                        element.classList.add("input-error")
+                    } else {
+                        counter++
+                        obj[key] = value
+                    }
+                } else {
+                    obj[key] = value
+                }
+            })
+    
+            // ALL OK
+            if(counter >= need) {
+                let api = rootState.routes[id].api
+
+                apiRoutes
+                    .post({
+                        api: api,
+                        obj
+                    })
+                    .then((res) => {
+                        if(res.status >= 200 && res.status <= 299) {
+                            this.$router.push("/thanks")
+                        } else {
+                            evt.querySelector("button").removeAttribute("disabled")
+                            alert("Что-то пошло не так")
+                        }
+                    })
+                    .catch(err => {
+                        evt.querySelector("button").removeAttribute("disabled")
+                        alert("Что-то пошло не так")
+                    })
             }
         },
     },
