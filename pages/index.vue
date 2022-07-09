@@ -96,7 +96,7 @@
     </main>
 </template>
 
-<script lang="ts">
+<script>
 import {mapActions, mapGetters, mapMutations, mapState} from "vuex"
 
 export default {

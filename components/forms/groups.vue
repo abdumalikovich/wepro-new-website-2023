@@ -9,7 +9,7 @@
     </form>
 </template>
 
-<script lang="ts">
+<script>
 import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {

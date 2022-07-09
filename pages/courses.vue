@@ -22,7 +22,7 @@
     </main>
 </template>
 
-<script lang="ts">
+<script>
 import { mapGetters, mapMutations, mapActions, mapState } from "vuex";
 
 export default {

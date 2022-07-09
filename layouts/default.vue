@@ -107,12 +107,10 @@
     </div>
 </template>
 
-<script lang="ts">
+<script>
 import { mapGetters, mapMutations, mapActions, mapState } from "vuex";
-import footerComponent from '~/components/footer-component.vue';
 
 export default {
-  components: { footerComponent },
     data() {
         return {
             showHideSpinner: false

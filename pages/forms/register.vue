@@ -18,7 +18,7 @@
     </div>
 </template>
 
-<script lang="ts">
+<script>
 import { mapActions, mapMutations, mapGetters, mapState } from "vuex"
 
 export default {

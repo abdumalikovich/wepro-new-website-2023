@@ -59,7 +59,7 @@
     </transition>
 </template>
 
-<script lang="ts">
+<script>
 import {mapActions, mapGetters, mapState} from "vuex";
 
 export default {
