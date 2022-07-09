@@ -1,6 +1,6 @@
 <template>
     <div class="courses-list">
-        <nuxt-link :to="'/course/' + item._id" v-for="item of list" :key="item.key">
+        <nuxt-link :to="'/course/' + item.url" v-for="item of list" :key="item.key">
             <div class="item">
                 <div class="side-left">
                     <img v-if="item.teacherId.avatar_url" :src="item.teacherId.avatar_url">

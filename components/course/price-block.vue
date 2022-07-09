@@ -1,10 +1,10 @@
 <template>
     <div class="price-block">
         <div class="discount">
-            <span class="_h3" style="text-decoration: line-through">{{ Number(price * 2).toLocaleString() }} so'm</span>
-            <div class="_fill red">CHEGIRMA -{{ 50 + sale }}%</div>
+            <span class="_h3" style="text-decoration: line-through">{{ Number(price + (price / 100 * 25)).toLocaleString() }} сум</span>
+            <div class="_fill red">СКИДКА -{{ 25 + sale }}%</div>
         </div>
-        <span class="_h2">{{ Number(price - (price / 100 * sale)).toLocaleString() }} so'm</span>
+        <span class="_h2">{{ price.toLocaleString() }} сум</span>
     </div>
 </template>
 

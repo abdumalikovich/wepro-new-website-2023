@@ -25,6 +25,26 @@ export default () => new Vuex.Store({
                 method: "post",
                 api: "leadsGroups",
             },
+            groups: {
+                method: "get",
+                api: "groups",
+                body: []
+            },
+            courses: {
+                method: "get",
+                api: "courses",
+                body: []
+            },
+            course: {
+                method: "get",
+                api: "courses",
+                body: []
+            },
+            teachers: {
+                method: "get",
+                api: "teachers",
+                body: []
+            },
         },
         modals: {
             menu: {
@@ -74,7 +94,7 @@ export default () => new Vuex.Store({
             course: {
                 method: "get",
                 api: "courses",
-                body: []
+                body: {}
             },
             teachers: {
                 method: "get",
@@ -131,18 +151,33 @@ export default () => new Vuex.Store({
         GET_DATA(state, data) {
             state.allData[data.key].body = data.value
         },
+        GET_ONE_ELEMENT(state, data) {
+            state.allData.course.body = data.value
+        },
     },
     actions: {
+        async GET_ONE_ELEMENT({ commit, rootState, dispatch }, { key, id }) {
+            let api = rootState.routes[key].api
+
+            await apiRoutes.get({
+                api: api + "/" + id
+            })
+                .then((res) => {
+                    commit("GET_ONE_ELEMENT", { key, value: res.data })
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        },
         async GET_DATA({ commit, rootState, dispatch }, routes) {
             for(let item of routes) {
                 let api = rootState.allData[item].api
     
                 if(!rootState.allData[item].body.length || rootState.allData[item].length == 0) {
                     // IF EMPTY DATA
-                    await apiRoutes
-                        .get({
-                            api: api,
-                        })
+                    await apiRoutes.get({
+                        api: api,
+                    })
                         .then((res) => {
                             commit("GET_DATA", { key: item, value: res.data });
                         })
