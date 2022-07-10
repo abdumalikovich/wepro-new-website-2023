@@ -1168,7 +1168,7 @@ form {
     .lesson-item {
         border: 1px solid var(--grey);
         border-radius: 11px;
-        height: 125px;
+        min-height: 125px;
         background-color: #fff;
         color: var(--black);
         margin: 0 12px 12px 0;
@@ -1179,6 +1179,9 @@ form {
         flex-direction: column;
         justify-content: space-between;
         font-size: 14px;
+        .lesson-title {
+            margin-bottom: 12px;
+        }
     }
     a {
         &:nth-child(4n) {

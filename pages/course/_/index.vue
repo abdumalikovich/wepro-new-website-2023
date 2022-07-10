@@ -50,7 +50,7 @@
                                 allData.course.body.teacherId.name
                             }}
                         </p>
-                        <div class="_note">Kurs o'qituvchisi</div>
+                        <div class="_note">Преподаватель курса</div>
                     </div>
                 </div>
             </div>
@@ -64,28 +64,19 @@
                 <div class="wrapper">
                     <div class="item">
                         <img src="~/static/img/course/1.svg" />
-                        <span
-                            >Kurs mutaxassislarning haqiqiy tajribasiga
-                            asoslangan</span
-                        >
+                        <span>Курс основан на реальном опыте специалистов</span>
                     </div>
                     <div class="item">
                         <img src="~/static/img/course/2.svg" />
-                        <span>Savollaringizga javob beradigan vebinarlar</span>
+                        <span>Вебинары, чтобы ответить на ваши вопросы</span>
                     </div>
                     <div class="item">
                         <img src="~/static/img/course/3.svg" />
-                        <span
-                            >12 oylik barcha materiallarga kirish va kurs
-                            sertifikati</span
-                        >
+                        <span>12-месячный доступ ко всем материалам и сертификат курса</span>
                     </div>
                     <div class="item">
                         <img src="~/static/img/course/4.svg" />
-                        <span
-                            >Kompyuter yoki smartfonda istalgan vaqtda onlayn
-                            ma'ruzalar tomosha qiling</span
-                        >
+                        <span>Смотрите онлайн лекции в любое время на компьютере или смартфоне</span>
                     </div>
                 </div>
             </div>
@@ -101,28 +92,18 @@
                 <div class="wrapper">
                     <div class="item">
                         <img src="~/static/img/course/suitable-1.svg" />
-                        <span>Ushbu sohada yangi boshlanuvchilar</span>
-                        <p>
-                            Hech qachon kasbga duch kelmagan, ammo noldan yangi
-                            talab qilinadigan ko'nikmalarga ega bo'lishni va
-                            faoliyat doirasini o'zgartirishni istaganlar.
-                        </p>
+                        <span>Новички в этой области</span>
+                        <p>Тем, кто никогда не сталкивался с профессией, но хочет с нуля приобрести новые востребованные навыки и сменить сферу деятельности.</p>
                     </div>
                     <div class="item">
                         <img src="~/static/img/course/suitable-2.svg" />
-                        <span>Tegishli sohalardagi mutaxassislarga</span>
-                        <p>
-                            Kasbiy mahoratingizni oshiring. Bizning kursimiz
-                            bilan birga ushbu sohada yaxshilang.
-                        </p>
+                        <span>Специалистам в смежных областях</span>
+                        <p>Качайте свои профессиональные навыки. Совершенствуйтесь в этой области вместе с нашим курсом.</p>
                     </div>
                     <div class="item">
                         <img src="~/static/img/course/suitable-3.svg" />
-                        <span>Boshqa mutaxassislar</span>
-                        <p>
-                            Dizaynerlar, ishlab chiquvchilar va dasturlash
-                            sohasiga qiziqqan har bir kishi
-                        </p>
+                        <span>Другие специалисты</span>
+                        <p>Дизайнеры, разработчики, маркетологи и все, кто интересуется программированием</p>
                     </div>
                 </div>
             </div>
@@ -148,43 +129,28 @@
 
         <div class="after-course _width">
             <div class="_heading">
-                <span class="_h2">kursdan keyin nima qila olaman</span>
+                <span class="_h2">Что я смогу делать после курса</span>
             </div>
             <div class="wrapper">
                 <div class="item">
                     <img src="~/static/img/course/suitable-7.svg" />
-                    <span>Noldan veb-saytlar yaratish</span>
-                    <p>
-                        Turli murakkablikdagi landings va reklama loyihalarini
-                        amalga oshirishingiz mumkin. Mijoz va
-                        foydalanuvchilarning ehtiyojlarini tushunish.
-                    </p>
+                    <span>Работать над проектами с нуля</span>
+                    <p>Можно выполнять проекты различной сложности. Понимать потребности клиентов и пользователей.</p>
                 </div>
                 <div class="item">
                     <img src="~/static/img/course/suitable-4.svg" />
-                    <span>Asboblardan foydalaning</span>
-                    <p>
-                        Siz har bir dasturni asoslardan o'rganasiz va portfelni
-                        to'ldirishingiz mumkin bo'lgan o'quv loyihalarini amalga
-                        oshirasiz.
-                    </p>
+                    <span>Использование инструментов</span>
+                    <p>Вы изучаете каждую программу с основ и выполняете учебные проекты, которыми вы можете дополнить портфолио.</p>
                 </div>
                 <div class="item">
                     <img src="~/static/img/course/suitable-5.svg" />
-                    <span>IT ishlash</span>
-                    <p>
-                        Reklama agentliklari, veb-studiyalar va yirik
-                        kompaniyalarning marketing va rivojlanish bo'limlarida
-                        ish topishingiz mumkin.
-                    </p>
+                    <span>Работать в IT</span>
+                    <p>Рекламные агентства, веб-студии и крупные компании, где вы можете найти работу в отделах маркетинга и развития.</p>
                 </div>
                 <div class="item">
                     <img src="~/static/img/course/suitable-6.svg" />
-                    <span>Frilansning buyurtmalarini olish</span>
-                    <p>
-                        Mijozlarga loyihalarni qanday qilib to'g'ri tuzish va
-                        taqdim etishni tushunasiz.
-                    </p>
+                    <span>Получение заказов фрилансера</span>
+                    <p>Вы поймете, как правильно структурировать и представлять проекты клиентам.</p>
                 </div>
             </div>
         </div>
