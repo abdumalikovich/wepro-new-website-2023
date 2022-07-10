@@ -20,12 +20,15 @@
 
                     <span v-else class="_h3">Bepul kurs</span>
 
-                    <div
-                        class="_buttons"
-                    >
+                    <div class="_buttons">
                         <button
                             class="style-5"
-                            @click="buyCourse(course)"
+                            @click="
+                                openModalWindow({
+                                    name: 'register',
+                                    bg: true,
+                                })
+                            "
                         >
                             Записаться на курс
                         </button>
@@ -36,19 +39,22 @@
 
         <div class="_margin"></div>
 
-        <div v-if="allData.course.body._id" class="_dotted_white teacher-blockquote">
+        <div
+            v-if="allData.course.body._id"
+            class="_dotted_white teacher-blockquote"
+        >
             <div class="_width">
                 <div class="_heading">
                     <span class="_h2">О препователе курса</span>
                 </div>
                 <p>{{ allData.course.body.teacherId.description }}</p>
                 <div v-if="allData.course.body.teacherId" class="teacher">
-                    <teacher-avatar :name="allData.course.body.teacherId.name" />
+                    <teacher-avatar
+                        :name="allData.course.body.teacherId.name"
+                    />
                     <div class="text">
                         <p>
-                            {{
-                                allData.course.body.teacherId.name
-                            }}
+                            {{ allData.course.body.teacherId.name }}
                         </p>
                         <div class="_note">Преподаватель курса</div>
                     </div>
@@ -72,11 +78,17 @@
                     </div>
                     <div class="item">
                         <img src="~/static/img/course/3.svg" />
-                        <span>12-месячный доступ ко всем материалам и сертификат курса</span>
+                        <span
+                            >12-месячный доступ ко всем материалам и сертификат
+                            курса</span
+                        >
                     </div>
                     <div class="item">
                         <img src="~/static/img/course/4.svg" />
-                        <span>Смотрите онлайн лекции в любое время на компьютере или смартфоне</span>
+                        <span
+                            >Смотрите онлайн лекции в любое время на компьютере
+                            или смартфоне</span
+                        >
                     </div>
                 </div>
             </div>
@@ -93,17 +105,28 @@
                     <div class="item">
                         <img src="~/static/img/course/suitable-1.svg" />
                         <span>Новички в этой области</span>
-                        <p>Тем, кто никогда не сталкивался с профессией, но хочет с нуля приобрести новые востребованные навыки и сменить сферу деятельности.</p>
+                        <p>
+                            Тем, кто никогда не сталкивался с профессией, но
+                            хочет с нуля приобрести новые востребованные навыки
+                            и сменить сферу деятельности.
+                        </p>
                     </div>
                     <div class="item">
                         <img src="~/static/img/course/suitable-2.svg" />
                         <span>Специалистам в смежных областях</span>
-                        <p>Качайте свои профессиональные навыки. Совершенствуйтесь в этой области вместе с нашим курсом.</p>
+                        <p>
+                            Качайте свои профессиональные навыки.
+                            Совершенствуйтесь в этой области вместе с нашим
+                            курсом.
+                        </p>
                     </div>
                     <div class="item">
                         <img src="~/static/img/course/suitable-3.svg" />
                         <span>Другие специалисты</span>
-                        <p>Дизайнеры, разработчики, маркетологи и все, кто интересуется программированием</p>
+                        <p>
+                            Дизайнеры, разработчики, маркетологи и все, кто
+                            интересуется программированием
+                        </p>
                     </div>
                 </div>
             </div>
@@ -135,22 +158,34 @@
                 <div class="item">
                     <img src="~/static/img/course/suitable-7.svg" />
                     <span>Работать над проектами с нуля</span>
-                    <p>Можно выполнять проекты различной сложности. Понимать потребности клиентов и пользователей.</p>
+                    <p>
+                        Можно выполнять проекты различной сложности. Понимать
+                        потребности клиентов и пользователей.
+                    </p>
                 </div>
                 <div class="item">
                     <img src="~/static/img/course/suitable-4.svg" />
                     <span>Использование инструментов</span>
-                    <p>Вы изучаете каждую программу с основ и выполняете учебные проекты, которыми вы можете дополнить портфолио.</p>
+                    <p>
+                        Вы изучаете каждую программу с основ и выполняете
+                        учебные проекты, которыми вы можете дополнить портфолио.
+                    </p>
                 </div>
                 <div class="item">
                     <img src="~/static/img/course/suitable-5.svg" />
                     <span>Работать в IT</span>
-                    <p>Рекламные агентства, веб-студии и крупные компании, где вы можете найти работу в отделах маркетинга и развития.</p>
+                    <p>
+                        Рекламные агентства, веб-студии и крупные компании, где
+                        вы можете найти работу в отделах маркетинга и развития.
+                    </p>
                 </div>
                 <div class="item">
                     <img src="~/static/img/course/suitable-6.svg" />
                     <span>Получение заказов фрилансера</span>
-                    <p>Вы поймете, как правильно структурировать и представлять проекты клиентам.</p>
+                    <p>
+                        Вы поймете, как правильно структурировать и представлять
+                        проекты клиентам.
+                    </p>
                 </div>
             </div>
         </div>
@@ -166,36 +201,40 @@ export default {
     data() {
         return {
             title: "Страница курса | Wepro",
-            description: "Страница курса"
-        }
+            description: "Страница курса",
+        };
     },
-	head() {
-		return {
-			title: this.title,
-			meta: [
-				{
-					hid: "description",
-					name: "description",
-					content: this.description
-				},
-			],
-		}
-	},
+    head() {
+        return {
+            title: this.title,
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    content: this.description,
+                },
+            ],
+        };
+    },
     computed: {
         ...mapGetters(["modals", "allData"]),
     },
     methods: {
-        ...mapActions([
-            "GET_ONE_ELEMENT"
-        ]),
+        ...mapMutations(["openModalWindow", "CLEAR_ONE_ELEMENT"]),
+        ...mapActions(["GET_ONE_ELEMENT"]),
     },
     mounted() {
-        this.GET_ONE_ELEMENT({ key: "course", id: this.$route.params.pathMatch })
-            .then(() => {
-                this.title = this.allData.course.body.title
-                this.description = this.allData.course.body.description
-            })
+        this.GET_ONE_ELEMENT({
+            key: "course",
+            id: this.$route.params.pathMatch,
+        }).then(() => {
+            this.title = this.allData.course.body.title;
+            this.description = this.allData.course.body.description;
+        });
     },
+    beforeDestroy() {
+        this.CLEAR_ONE_ELEMENT()
+    }
 };
 </script>
 

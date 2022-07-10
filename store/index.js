@@ -154,6 +154,10 @@ export default () => new Vuex.Store({
         GET_ONE_ELEMENT(state, data) {
             state.allData.course.body = data.value
         },
+        CLEAR_ONE_ELEMENT(state) {
+            state.routes.course.body = []
+            state.allData.course.body = {}
+        }
     },
     actions: {
         async GET_ONE_ELEMENT({ commit, rootState, dispatch }, { key, id }) {
