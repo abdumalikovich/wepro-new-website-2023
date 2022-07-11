@@ -13,7 +13,13 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+		script: [
+			{
+				src: "//code.jivo.ru/widget/jMeM0zFEtz",
+				async: true
+			}
+		]
   },
 
 	router: { middleware: ['anyRouteChanging'] },
