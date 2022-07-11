@@ -1,9 +1,9 @@
 <template>
     <div class="bottom-side lessons-list">
-        <div class="lesson-item" v-for="item of data.lessons" :key="item.key">
+        <div class="lesson-item" v-for="item of data" :key="item.key">
             <span class="lesson-title _h4">{{ item }}</span>
             <span class="lesson-number">
-                <span>Занятие {{ data.lessons.indexOf(item) + 1 }}</span>
+                <span>Занятие {{ data.indexOf(item) + 1 }}</span>
             </span>
         </div>
     </div>
@@ -11,19 +11,9 @@
 
 <script>
 export default {
-    data() {
-        return {
-            lessons: {},
-            course: {},
-        }
-    },
     props: [
         "data"
-    ],
-    mounted() {
-        this.lessons = this.data.lessons
-        this.course = this.data.course
-    }
+    ]
 }
 </script>
 

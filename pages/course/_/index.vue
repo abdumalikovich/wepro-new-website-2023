@@ -13,12 +13,9 @@
                     }}</span>
 
                     <course-price-block
-                        v-if="allData.course.body.price > 0"
                         :price="allData.course.body.price"
                         :sale="0"
                     ></course-price-block>
-
-                    <span v-else class="_h3">Bepul kurs</span>
 
                     <div class="_buttons">
                         <button
@@ -134,16 +131,13 @@
 
         <div class="_margin-line"></div>
 
-        <div class="course-lessons-list _width">
+        <div class="course-lessons-list _width" v-if="allData.course.body._id">
             <div class="_heading">
                 <span class="_h2">Программа курса</span>
             </div>
-            <div v-if="allData.course.body._id" class="modules-list wrapper">
+            <div class="modules-list wrapper">
                 <lessons-list
-                    :data="{
-                        lessons: allData.course.body.course_programm,
-                        course: course,
-                    }"
+                    :data="allData.course.body.course_programm"
                 ></lessons-list>
             </div>
         </div>
@@ -228,8 +222,10 @@ export default {
             key: "course",
             id: this.$route.params.pathMatch,
         }).then(() => {
-            this.title = this.allData.course.body.title;
-            this.description = this.allData.course.body.description;
+            if(this.allData.course._id) {
+                this.title = this.allData.course.body.title;
+                this.description = this.allData.course.body.description;
+            }
         });
     },
     beforeDestroy() {

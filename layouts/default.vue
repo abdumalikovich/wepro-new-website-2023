@@ -9,6 +9,15 @@
 
         <!-- <modals-cookies></modals-cookies> -->
 
+        <div class="contact-widget">
+            <div class="hide">
+                123
+            </div>
+            <div class="show">
+                <svg fill="#FFFFFF" height="30" width="30" viewBox="0 0 24 24" style="padding-top: 4px;"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+            </div>
+        </div>
+
         <transition name="fade" mode="out-in">
             <div class="modal-default modal-left" v-if="modals.leadGroup.status">
                 <img class="logo" src="~/static/img/logo-dark.svg">
@@ -1566,6 +1575,42 @@ form {
             padding-left: 0;
             padding-right: 0;
         }
+    }
+}
+.contact-widget {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    .show {
+        width: 70px;
+        height: 70px;
+        background-color: var(--corp);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        position: relative;
+        &:before {
+            position: absolute;
+            content: "";
+            animation: widgetPulse infinite 1.5s;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--corp);
+            border-radius: 100%;
+            z-index: -1;
+        }
+    }
+}
+@keyframes widgetPulse {
+    0% {
+        transform: scale(1);
+        background-color: transparent;
+    } 50% {
+        transform: scale(1.3);
+    } 100% {
+        transform: scale(1);
+        background-color: transparent;
     }
 }
 </style>
