@@ -7,10 +7,20 @@
         <div v-if="allData.course.body._id" class="title _width">
             <div class="wrapper">
                 <div class="description">
-                    <h2>{{ allData.course.body.title }}</h2>
-                    <span class="_note" style="#fff">{{
-                        allData.course.body.description
-                    }}</span>
+                    <h1>{{ allData.course.body.title }}</h1>
+                    <p class="_plus">{{allData.course.body.description}}</p>
+
+                    <div v-if="allData.course.body.teacherId" class="teacher">
+                        <teacher-avatar
+                            :name="allData.course.body.teacherId.name"
+                        />
+                        <div class="text">
+                            <p>
+                                {{ allData.course.body.teacherId.name }}
+                            </p>
+                            <div class="_note">Преподаватель курса</div>
+                        </div>
+                    </div>
 
                     <course-price-block
                         :price="allData.course.body.price"
@@ -40,22 +50,14 @@
             v-if="allData.course.body._id"
             class="_dotted_white teacher-blockquote"
         >
-            <div class="_width">
+            <div class="_width" v-if="allData.groups.body.filter(item => item.courseId._id == allData.course.body._id).length">
                 <div class="_heading">
-                    <span class="_h2">О препователе курса</span>
+                    <span class="_h2">Идут наборы</span>
                 </div>
-                <p>{{ allData.course.body.teacherId.description }}</p>
-                <div v-if="allData.course.body.teacherId" class="teacher">
-                    <teacher-avatar
-                        :name="allData.course.body.teacherId.name"
-                    />
-                    <div class="text">
-                        <p>
-                            {{ allData.course.body.teacherId.name }}
-                        </p>
-                        <div class="_note">Преподаватель курса</div>
-                    </div>
-                </div>
+                <client-only>
+                    <groups-list v-if="allData.groups.body.length" :list="allData.groups.body.filter(item => item.courseId._id == allData.course.body._id)"/>
+                    <loading-courses v-else/>
+                </client-only>
             </div>
         </div>
 
@@ -216,8 +218,9 @@ export default {
     methods: {
         ...mapMutations(["openModalWindow", "CLEAR_ONE_ELEMENT"]),
         ...mapActions(["GET_ONE_ELEMENT"]),
+		...mapActions(["GET_DATA"]),
     },
-    mounted() {
+    created() {
         this.GET_ONE_ELEMENT({
             key: "course",
             id: this.$route.params.pathMatch,
@@ -227,6 +230,7 @@ export default {
                 this.description = this.allData.course.body.description;
             }
         });
+		this.GET_DATA(["groups", "courses", "teachers"])
     },
     beforeDestroy() {
         this.CLEAR_ONE_ELEMENT()
@@ -277,7 +281,9 @@ export default {
             }
         }
     }
-
+    .groups-list {
+        color: var(--black);
+    }
     .course-suitable,
     .after-course {
         .wrapper {
@@ -448,9 +454,7 @@ export default {
         .description {
             margin-left: 80px;
 
-            ._note {
-                opacity: 0.7;
-                display: block;
+            p._plus {
                 margin: 24px 0;
                 color: #fff !important;
             }

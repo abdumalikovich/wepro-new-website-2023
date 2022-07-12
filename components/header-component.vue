@@ -18,6 +18,7 @@
                             <img src="~/static/img/fire.png" width="18">
                         </nuxt-link>
                         <nuxt-link to="/teachers">Преподаватели</nuxt-link>
+                        <nuxt-link to="/#work">Трудоустройство</nuxt-link>
                     </div>
                 </div>
             </div>

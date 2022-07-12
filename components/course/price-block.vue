@@ -4,7 +4,7 @@
             <span class="_h3" style="text-decoration: line-through">{{ Number(price + (price / 100 * 25)).toLocaleString() }} сум</span>
             <div class="_fill red">СКИДКА -{{ 25 + sale }}%</div>
         </div>
-        <span class="_h2">{{ price.toLocaleString() }} сум</span>
+        <span class="_h1">{{ price.toLocaleString() }} сум</span>
     </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
     .discount {
         display: flex;
         align-items: center;
-        margin-bottom: 14px;
+        margin-bottom: 6px;
         ._h3 {
             margin: 14px 14px 14px 0!important;
         }

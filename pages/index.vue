@@ -59,6 +59,14 @@
 
         <numbers-block></numbers-block>
 
+        <div class="all-work _width" id="work">
+            <div class="_heading">
+                <span class="_h2">Где работают наши выпускники</span>
+                <p></p>
+            </div>
+            <work-block></work-block>
+        </div>
+
         <div class="all-teachers _width">
             <div class="_heading">
                 <span class="_h2">Наша команда</span>
