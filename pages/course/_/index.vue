@@ -236,8 +236,8 @@ export default {
 
 <style lang="scss">
 :root {
-    --accent: #4552b4;
-    --corp: #2b41f0;
+    --accent: #d68d2d;
+    --corp: #F55302;
     --bg: #f1f6fb;
     --black: #10162f;
     --grey: #7c828d;

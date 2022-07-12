@@ -2,7 +2,7 @@
     <div class="courses-list">
         <nuxt-link :to="'/course/' + item.url" v-for="item of list" :key="item.key">
             <div class="item">
-                <div class="side-left">
+                <div class="side-left _pc">
                     <img v-if="item.teacherId.avatar_url" :src="item.teacherId.avatar_url">
                     <teacher-avatar v-else :name="item.teacherId.name"></teacher-avatar>
 
@@ -15,8 +15,12 @@
                         <span class="_fill">{{ item.course_programm.length * 90 }} минут</span>
 
                         <span class="_h3">{{ item.title }}</span>
+
+                        <span class="teacher-name _mobile">{{ item.teacherId.name }}</span>
+
                         <p class="_pc course-description">{{ item.description }}</p>
-                        <p class="_mobile course-description">{{ item.description.slice(0, 90) + "..." }}</p>
+                        <p class="_mobile course-description">{{ item.description }}</p>
+                        <p class="_mobile course-description _mobile">{{ item.description.slice(0, 90) + "..." }}</p>
 
                         <client-only>
                             <div class="_buttons">
@@ -152,7 +156,7 @@ export default {
 }
 
 @media only screen and (max-width: 860px) {
-    .wrapper-vertical .item {
+    .courses-list .item {
         padding: 16px;
         button {
             img {
@@ -171,15 +175,16 @@ export default {
             }
         }
         .side-right {
-            padding-left: 16px;
+            padding-left: 0;
             ._fill {
                 display: inline-block;
             }
-            .top {
-                .course-description {
-                    display: none;
-                }
-            }
+        }
+        .course-description._mobile {
+            margin: 12px 0 0 0;
+        }
+        .teacher-name {
+            margin-bottom: 0!important;
         }
     }
 }

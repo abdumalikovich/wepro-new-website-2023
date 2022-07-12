@@ -74,14 +74,14 @@ export default {
 
 <style scoped lang="scss">
 :root {
-    --corp: #2B41F0;
+    --corp: #F55302;
     --bg: #F1F6FB;
     --black: #10162F;
     --grey: #7c828d;
     --yellow: #F8D548;
     --green: #1CA245;
     --red: #DB1536;
-    --accent: #4552B4;
+    --accent: #d68d2d;
 }
 
 .main-menu {
