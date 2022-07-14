@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://www.wepro.academy/sitemap.xml
+Sitemap: http://www.wepro.uz/sitemap.xml

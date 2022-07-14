@@ -44,7 +44,7 @@ export default {
 
 .groups-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     .item {
         background-color: var(--bg);
         padding: 32px;

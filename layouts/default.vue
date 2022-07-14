@@ -1164,7 +1164,7 @@ form {
 
 .lessons-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     .lesson-item {
         border: 1px solid var(--grey);
         border-radius: 11px;
@@ -1178,9 +1178,11 @@ form {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        font-size: 14px;
         .lesson-title {
             margin-bottom: 12px;
+        }
+        ._h4, h4 {
+            font-size: 16px;
         }
     }
     a {
@@ -1357,6 +1359,12 @@ form {
         ._width_small {
             padding-left: 0;
             padding-right: 0;
+        }
+    }
+    .lessons-list .lesson-item {
+        padding: 12px;
+        ._h4, h4 {
+            font-size: 14px;
         }
     }
 }
