@@ -1164,7 +1164,7 @@ form {
 
 .lessons-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     .lesson-item {
         border: 1px solid var(--grey);
         border-radius: 11px;

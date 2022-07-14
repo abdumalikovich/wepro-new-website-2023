@@ -94,4 +94,12 @@ export default {
         }
     }
 }
+
+@media only screen and (max-width: 860px) {
+    .groups-list {
+        .item {
+            margin-right: 0;
+        }
+    }
+}
 </style>

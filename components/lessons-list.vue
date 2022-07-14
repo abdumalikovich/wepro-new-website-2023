@@ -20,7 +20,6 @@ export default {
 <style scoped lang="scss">
 @media only screen and (max-width: 860px) {
     .lessons-list {
-        grid-template-columns: repeat(3, 1fr);
         a {
             margin: 0 6px 6px 0;
             .lesson-item {
