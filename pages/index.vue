@@ -76,6 +76,15 @@
             </div>
         </div>
 
+        <div class="all-reviews _width">
+            <div class="_heading">
+                <span class="_h2">Отзывы выпускников</span>
+            </div>
+            <div class="reviews-list">
+                <iframe class="item" v-for="item of reviews" :key="item.key" :src="'https://www.youtube.com/embed/' + item" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
         <!-- <div class="all-reviews _width">
             <div class="_heading">
                 <span class="_h2">Отзывы от студентов</span>
@@ -108,6 +117,20 @@
 import {mapActions, mapGetters, mapMutations, mapState} from "vuex"
 
 export default {
+    data() {
+        return {
+			reviews: [
+                "LYSd6PyFYqo",
+                "GZpItP_XjGA",
+                "chGa6KzhsQ4",
+				"5TLIsYjMG8I",
+				"c57vwJIZalo",
+				"Lf9kqW982pw",
+				"mUh3pbUWLvE",
+				"Ykl8r4VdlRc"
+			],
+        }
+    },
 	computed: {
 		...mapGetters(["allData"]),
 	},
@@ -128,6 +151,18 @@ export default {
     --black: #10162F;
     --grey: #7c828d;
     --yellow: #F8D548;
+}
+
+.reviews-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-gap: 24px;
+    .item {
+        margin: 0 24px 24px 0;
+        width: 100%;
+        height: 100%;
+        height: 400px;
+    }
 }
 
 @keyframes telegram_1 {
