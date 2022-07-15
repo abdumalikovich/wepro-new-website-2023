@@ -59,6 +59,15 @@ export default {
 				ecommerce: "dataLayer"
 			}
 		],
+		[
+			'nuxt-facebook-pixel-module',
+			{
+				track: 'PageView',
+				pixelId: '286048333734380',
+				autoPageView: true,
+				disabled: false
+			}
+		],
 	],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
