@@ -1,65 +1,71 @@
 <template>
     <main id="page-course">
-        <div v-if="allData.course.body._id" class="bg">
-            <img :src="allData.course.body.preview" />
-        </div>
+        <client-only>
+            <div v-if="allData.course.body._id" class="bg">
+                <img :src="allData.course.body.preview" />
+            </div>
+        </client-only>
 
-        <div v-if="allData.course.body._id" class="title _width">
-            <div class="wrapper">
-                <div class="description">
-                    <h1>{{ allData.course.body.title }}</h1>
-                    <p class="_plus">{{allData.course.body.description}}</p>
+        <client-only>
+            <div v-if="allData.course.body._id" class="title _width">
+                <div class="wrapper">
+                    <div class="description">
+                        <h1>{{ allData.course.body.title }}</h1>
+                        <p class="_plus">{{allData.course.body.description}}</p>
 
-                    <div v-if="allData.course.body.teacherId" class="teacher">
-                        <teacher-avatar
-                            :name="allData.course.body.teacherId.name"
-                        />
-                        <div class="text">
-                            <p>
-                                {{ allData.course.body.teacherId.name }}
-                            </p>
-                            <div class="_note">Преподаватель курса</div>
+                        <div v-if="allData.course.body.teacherId" class="teacher">
+                            <teacher-avatar
+                                :name="allData.course.body.teacherId.name"
+                            />
+                            <div class="text">
+                                <p>
+                                    {{ allData.course.body.teacherId.name }}
+                                </p>
+                                <div class="_note">Преподаватель курса</div>
+                            </div>
                         </div>
-                    </div>
 
-                    <course-price-block
-                        :price="allData.course.body.price"
-                        :sale="0"
-                    ></course-price-block>
+                        <course-price-block
+                            :price="allData.course.body.price"
+                            :sale="0"
+                        ></course-price-block>
 
-                    <div class="_buttons">
-                        <button
-                            class="style-5"
-                            @click="
-                                openModalWindow({
-                                    name: 'register',
-                                    bg: true,
-                                })
-                            "
-                        >
-                            Записаться на курс
-                        </button>
+                        <div class="_buttons">
+                            <button
+                                class="style-5"
+                                @click="
+                                    openModalWindow({
+                                        name: 'register',
+                                        bg: true,
+                                    })
+                                "
+                            >
+                                Записаться на курс
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </client-only>
 
         <div class="_margin"></div>
 
-        <div
-            v-if="allData.course.body._id"
-            class="_dotted_white teacher-blockquote"
-        >
-            <div class="_width" v-if="allData.groups.body.filter(item => item.courseId._id == allData.course.body._id).length">
-                <div class="_heading">
-                    <span class="_h2">Идут наборы</span>
+        <client-only>
+            <div
+                v-if="allData.course.body._id"
+                class="_dotted_white teacher-blockquote"
+            >
+                <div class="_width" v-if="allData.groups.body.filter(item => item.courseId._id == allData.course.body._id).length">
+                    <div class="_heading">
+                        <span class="_h2">Идут наборы</span>
+                    </div>
+                    <client-only>
+                        <groups-list v-if="allData.groups.body.length" :list="allData.groups.body.filter(item => item.courseId._id == allData.course.body._id)"/>
+                        <loading-courses v-else/>
+                    </client-only>
                 </div>
-                <client-only>
-                    <groups-list v-if="allData.groups.body.length" :list="allData.groups.body.filter(item => item.courseId._id == allData.course.body._id)"/>
-                    <loading-courses v-else/>
-                </client-only>
             </div>
-        </div>
+        </client-only>
 
         <div class="course-about">
             <div class="_width">
@@ -220,7 +226,7 @@ export default {
         ...mapActions(["GET_ONE_ELEMENT"]),
 		...mapActions(["GET_DATA"]),
     },
-    created() {
+    mounted() {
         this.GET_ONE_ELEMENT({
             key: "course",
             id: this.$route.params.pathMatch,
@@ -757,60 +763,4 @@ export default {
         }
     }
 }
-
-//     #page-course {
-//         .ready-to-start-block {
-//             text-align: left;
-//         }
-//         .mobile-heading {
-//             margin-top: 120px;
-//             text-align: center;
-//             display: flex!important;
-//             position: relative;
-//             align-items: center;
-//             z-index: 1;
-//             flex-direction: column;
-//             .preview {
-//                 width: 200px;
-//                 height: 200px;
-//                 object-fit: cover;
-//             }
-//             .description {
-//                 margin-bottom: 24px;
-//             }
-//             h1 {
-//                 text-align: center;
-//                 margin: 16px 0 24px;
-//             }
-
-//         }
-//         .title {
-//             flex-direction: column;
-//         }
-//         .title .info {
-//             .iframe {
-//                 width: 100%;
-//             }
-//         }
-//         .lessons-list, .projects-list {
-//             grid-template-columns: 1fr 1fr;
-//             a {
-//                 .lesson-item {
-//                     margin-right: 12px!important;
-//                     margin-bottom: 12px!important;
-//                 }
-//             }
-//         }
-//         .modules-list {
-//             .module-title {
-//                 ._fill {
-//                     display: none;
-//                 }
-//                 ._h3 {
-//                     margin-right: 0!important;
-//                 }
-//             }
-//         }
-//     }
-// }
 </style>
