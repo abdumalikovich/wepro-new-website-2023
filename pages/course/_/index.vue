@@ -240,12 +240,13 @@ export default {
     this.GET_ONE_ELEMENT({
       key: "course",
       id: this.$route.params.pathMatch,
-    }).then(() => {
+    }).then((res) => {
       if (this.allData.course._id) {
         this.title = this.allData.course.body.title;
         this.description = this.allData.course.body.description;
       }
     });
+
     this.GET_DATA(["groups", "courses", "teachers"]);
   },
   beforeDestroy() {

@@ -117,6 +117,18 @@
 import {mapActions, mapGetters, mapMutations, mapState} from "vuex"
 
 export default {
+	head() {
+		return {
+			title: "Главная | Wepro",
+			meta: [
+				{
+					hid: "description",
+					name: "description",
+					content: "Обучение перспективным интернет-профессиям в центре онлайн-образования «Wepro»: теория, практика и помощь в трудоустройстве.",
+				},
+			],
+		};
+	},
     data() {
         return {
 			reviews: [

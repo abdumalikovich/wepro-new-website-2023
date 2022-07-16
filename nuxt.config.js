@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'wepro-offline-client-2',
+    title: 'Wepro',
     htmlAttrs: {
       lang: 'en'
     },
